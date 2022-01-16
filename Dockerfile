@@ -10,6 +10,6 @@ RUN apt-get update \
  libfreetype6 libfreetype6-dev  libfontconfig1 libfontconfig1-dev\
   && rm -rf /var/lib/apt/lists/*
 WORKDIR /code/
-COPY requirements.txt /webpandas/code/
+COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
