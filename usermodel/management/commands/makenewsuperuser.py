@@ -9,18 +9,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             u = None
-            if not User.objects.filter(email='timothymalahy@gmail.com').exists() and not User.objects.filter(
-                    is_superuser=True).exists():
-                print("admin user not found, creating one")
-                email = 'timothymalahy@gmail.com'
-                new_password = get_random_string()
+            email = 'timothymalahy@gmail.com'
+            new_password = get_random_string()
 
-                u = User.objects.create_superuser(email, new_password)
-                print(f"===================================")
-                print(f"A superuser was created with email {email} and password {new_password}")
-                print(f"===================================")
-            else:
-                print("admin user found. Skipping super user creation")
+            u = User.objects.create_superuser(email, new_password)
+            print(f"===================================")
+            print(f"A superuser was created with email {email} and password {new_password}")
+            print(f"===================================")
             print(u)
         except Exception as e:
             print(f"There was an error: {e}")

@@ -2,7 +2,6 @@ from pathlib import Path
 import environ
 import os
 
-
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 env = environ.Env()
