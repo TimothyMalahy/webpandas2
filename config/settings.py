@@ -10,6 +10,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DEBUG = env('DJANGO_DEBUG')
 ADMIN_URL = env('DJANGO_ADMIN_URL')
 
+DEBUG = False
+
 # Allowed Hosts Definition
 if DEBUG:
     # If Debug is True, allow all.
