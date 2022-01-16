@@ -4,8 +4,9 @@ from django.db.models import query
 from django.db.models.expressions import Col
 from django.db.models.fields import BLANK_CHOICE_DASH
 from django.forms import widgets
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+# from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.models import User
+from usermodel.models import *
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, Button, Submit, HTML, Field
@@ -46,11 +47,11 @@ class UploadDataFrameForm(forms.ModelForm):
         )
 
 
-class SignUpForm(UserCreationForm):
-    creation_date = forms.DateField()
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+# class SignUpForm(UserCreationForm):
+#     creation_date = forms.DateField()
+#     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
-    class Meta:
-        model = User
-        fields = ('username','creation_date','password1','password2')
+#     class Meta:
+#         model = User
+#         fields = ('username','creation_date','password1','password2')
 

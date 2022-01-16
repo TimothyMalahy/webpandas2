@@ -2,9 +2,19 @@ from pathlib import Path
 import environ
 import os
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-env = environ.Env()
-DEBUG = env.bool("DJANGO_DEBUG", False)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+
+DEBUG = env('DJANGO_DEBUG')
 
 
 # Allowed Hosts Definition
@@ -14,6 +24,9 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['webpandas.org'])
 
+
+
+# SECRET_KEY = env('DJANGO_SECRET_KEY')
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 """
@@ -51,10 +64,10 @@ THIRD_PARTY_APPS = [
 
 PROJECT_APPS = [
     'usermodel',
-    'core'
+    'core',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+INSTALLED_APPS = PROJECT_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
