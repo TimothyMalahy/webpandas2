@@ -4,8 +4,9 @@ from django.db.models import query
 from django.db.models.expressions import Col
 from django.db.models.fields import BLANK_CHOICE_DASH
 from django.forms import widgets
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+#from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.models import User
+from usermodel.models import User
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, Button, Submit, HTML, Field

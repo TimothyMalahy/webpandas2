@@ -9,11 +9,6 @@ env = environ.Env(
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-
-# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-
 DEBUG = env('DJANGO_DEBUG')
 
 
