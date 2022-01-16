@@ -1,2 +1,2 @@
-web: gunicorn tutorial.wsgi --log-file -
+web: gunicorn webpandas.wsgi --log-file -
 release: bash release.sh

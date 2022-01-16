@@ -162,12 +162,12 @@ if AWS_STORAGE_BUCKET_NAME:
     # s3 static settings
     STATIC_LOCATION = 'static'
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    STATICFILES_STORAGE = 'tutorial.storages.StaticStorage'
+    STATICFILES_STORAGE = 'webpandas.storages.StaticStorage'
 
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'tutorial.storages.PublicMediaStorage'
+    DEFAULT_FILE_STORAGE = 'webpandas.storages.PublicMediaStorage'
 else:
     MIDDLEWARE.insert(2, 'whitenoise.middleware.WhiteNoiseMiddleware')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
