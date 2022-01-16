@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 env = environ.Env()
 DEBUG = env.bool("DJANGO_DEBUG", False)
 
+
 # Allowed Hosts Definition
 if DEBUG:
     # If Debug is True, allow all.
@@ -50,6 +51,7 @@ THIRD_PARTY_APPS = [
 
 PROJECT_APPS = [
     'usermodel',
+    'core'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
