@@ -2,20 +2,19 @@ from pathlib import Path
 import environ
 import os
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DEBUG = env('DJANGO_DEBUG')
-
+ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Allowed Hosts Definition
 if DEBUG:
     # If Debug is True, allow all.
     ALLOWED_HOSTS = ['*']
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 else:
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['webpandas.org'])
 
@@ -54,6 +53,8 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.twitter',
     'crispy_forms',
 ]
 
@@ -132,7 +133,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Admin URL Definition
-ADMIN_URL = env('DJANGO_ADMIN_URL', default='admin/')
+# ADMIN_URL = env('DJANGO_ADMIN_URL', default='admin/')
 
 # Redis Settings
 REDIS_URL = env('REDIS_URL', default=None)
@@ -273,6 +274,8 @@ POST_OFFICE = {
     },
     'DEFAULT_PRIORITY': 'now',
 }
+
+
 
 # AWS SES Settings
 AWS_SES_REGION_NAME = env('AWS_SES_REGION_NAME', default='us-east-1')

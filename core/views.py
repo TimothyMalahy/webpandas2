@@ -4,7 +4,7 @@ from django.http.response import HttpResponse, Http404
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.forms import UserCreationForm
 from django.utils import datastructures
-from django.views.generic import UpdateView, CreateView, ListView, DetailView
+from django.views.generic import UpdateView, CreateView, ListView, DetailView, TemplateView
 from django.shortcuts import render, redirect
 from core.models import *
 from core.forms import *
@@ -115,7 +115,6 @@ def Ajax_SaveDataFrame(request):
     obj = DataFrame.objects.filter(pk=pathid).first()
     obj.dataframe = 'core/temp/'+str(request.user.id)+'/outputs/output.csv'
     obj.save()
-    print(obj, obj.dataframe)
     
     
     return HttpResponse("Success!") # Sending an success response
