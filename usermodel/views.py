@@ -8,6 +8,8 @@ from django.views.generic import UpdateView, CreateView, ListView, DetailView, T
 from django.shortcuts import render, redirect
 from .forms import *
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
+from bootstrap_modal_forms.generic import BSModalCreateView
+
 
 # class Signup_view(CreateView):
     
@@ -48,7 +50,12 @@ def signup_view(request):
     else:
         form = SignupForm()
         return render(request, 'usermodel/signup.html', {'form':form})
-    
+
+class SignUpModal(BSModalCreateView):
+    template_name = 'usermodel/signupmodal.html'
+    form_class = SignupFormModal
+    success_message = "success: User Signed Up"
+    success_url = reverse_lazy('core:home')
     
     # return HttpResponseRedirect(reverse('usermodel:signup'))
 

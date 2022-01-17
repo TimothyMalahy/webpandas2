@@ -42,9 +42,11 @@ p.centertext{
                 <div class="row">
                     <div class="col d-flex">
                         <a class="btn btn-success  flex-fill" href="https://app.appliku.com/" target="_blank">Login</a>
+
                     </div>
                     <div class="col d-flex">
-                        <a class="btn btn-success flex-fill" href="{% url 'usermodel:signup' %}" target="_blank">Sign Up</a>
+                        <!-- <a class="btn btn-success flex-fill" href="{% url 'usermodel:signup' %}" target="_blank">Sign Up</a> -->
+                        <button id="signup" class="btn btn-primary flex-fill" type="button" name="button">Sign Up</button>
                     </div>
                 </div>
             </div>
@@ -64,5 +66,26 @@ p.centertext{
     </form>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  
+  <!-- Create book button -->
+<button id="create-book" class="btn btn-primary" type="button" name="button">Create book</button>
+
+
+
 {% endblock %}
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+        $("#create-book").modalForm({
+            formURL: "{% url 'usermodel:signup_modal' %}"
+        });
+    
+    });
+</script>
