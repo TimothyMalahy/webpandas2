@@ -3,25 +3,25 @@ import environ
 import os
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+root = environ.Path(__file__) - 2  # get root of the project
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-DEBUG = env('DJANGO_DEBUG')
-ADMIN_URL = env('DJANGO_ADMIN_URL')
+environ.Env.read_env(os.path.join(root, '.env'))
+SITE_ROOT = root()
+DEBUG = env.bool('DEBUG', default=False)
+ADMIN_URL = env.str('DJANGO_ADMIN_URL', default='admin')
 
-DEBUG = False
+# TEMPLATE_DEBUG = DEBUG
 
-# Allowed Hosts Definition
 if DEBUG:
     # If Debug is True, allow all.
     ALLOWED_HOSTS = ['*']
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+    ADMIN_URL = 'admin/'
 else:
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['webpandas.org'])
+    ADMIN_URL = env.str('DJANGO_ADMIN_URL')
 
-
-
-# SECRET_KEY = env('DJANGO_SECRET_KEY')
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 """

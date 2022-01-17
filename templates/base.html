@@ -15,6 +15,7 @@
     {% endblock %}
   </head>
   <body>
+    {% block navbar %}
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
       <div class="collapse navbar-collapse" >
         <a class="navbar-brand" href="{% url 'core:home' %}">
@@ -44,9 +45,11 @@
 
         </ul>
       </div>
-
+      {% endblock %}
     </nav>
       {% block alerts %}
+      {% endblock %}
+      {% block contentexclude %}
       {% endblock %}
     <div class="container">
       <div class="row justify-content-center">

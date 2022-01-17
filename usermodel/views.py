@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from usermodel.models import User
 from django.http.response import HttpResponse, Http404
 from django.http import HttpResponseRedirect
@@ -31,6 +32,12 @@ def signup_view(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
+            email = form.cleaned_data['email']
+            password = make_password(form.cleaned_data['password'])
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            User.objects.create(email=email, password=password, first_name=first_name, last_name=last_name)
+            
             return HttpResponseRedirect(reverse('core:submitdataframe'))
         else:
             return render(request, 'usermodel/signup.html', {'form':form})    

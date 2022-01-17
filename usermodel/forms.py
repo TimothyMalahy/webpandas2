@@ -47,7 +47,10 @@ class SignupForm(forms.ModelForm):
 
     def clean(self):
         cd = self.cleaned_data
+        if User.objects.filter(email = cd.get('email')):
+            self.add_error('email', "user already exists")
+            return cd
         if cd.get('password') != cd.get('passwordconf'):
             self.add_error('passwordconf', "passwords do not match!")
-        return cd
+            return cd
         
