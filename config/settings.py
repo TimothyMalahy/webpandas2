@@ -2,6 +2,8 @@ from pathlib import Path
 import environ
 import os
 
+import usermodel
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 root = environ.Path(__file__) - 2  # get root of the project
 
@@ -239,7 +241,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_FORMS = {'signup': 'usermodel.forms.MyCustomSignupForm'}
+ACCOUNT_FORMS = {'login', 'usermodel.forms.MyLoginForm'}
 ACCOUNT_MAX_EMAIL_ADDRESSES = 2
 SOCIALACCOUNT_PROVIDERS = {
 
@@ -285,3 +287,6 @@ AWS_SES_REGION_ENDPOINT = env('AWS_SES_REGION_ENDPOINT', default='email.us-east-
 AWS_SES_CONFIGURATION_SET = env('AWS_SES_CONFIGURATION_SET', default=None)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGOUT_REDIRECT_URL = 'core:home'

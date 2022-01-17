@@ -10,5 +10,4 @@ urlpatterns = [
     path('view/', views.ViewDatas, name='viewdatas'),
     path('manipulate/<id>/', views.Manipulate, name='manipulate'),
     path('ajax/savedataframe', views.Ajax_SaveDataFrame, name='savedataframe'),
-    path('signin/', views.signinmodal.as_view(), name='signinmodal')
 ]
