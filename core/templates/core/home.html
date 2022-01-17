@@ -16,11 +16,13 @@
   overflow: hidden;
 } */
 
-.col-sm-gutter {
-    margin-right: 1;
-    margin-left: 1;
-}
 
+
+
+p.centertext{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
 
 </style>
 <div class="container-fluid mt-5">
@@ -38,35 +40,21 @@
                     data analytics package.
                 </p>
                 <div class="row">
-                    <div class="col">
-                        <a class="btn btn-success" href="https://app.appliku.com/" target="_blank">Login</a>
+                    <div class="col d-flex">
+                        <a class="btn btn-success  flex-fill" href="https://app.appliku.com/" target="_blank">Login</a>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-success" href="https://app.appliku.com/" target="_blank">Sign Up</a>
+                    <div class="col d-flex">
+                        <a class="btn btn-success flex-fill" href="{% url 'usermodel:signup' %}" target="_blank">Sign Up</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 mb">
             <div class="container">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-outline-info" href="https://app.appliku.com/" target="_blank">About Page</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-outline-info" href="https://app.appliku.com/" target="_blank">Contact Me</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-outline-info" href="https://app.appliku.com/" target="_blank">Contribute</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-outline-info" href="https://app.appliku.com/" target="_blank">Privacy Policy</a>
-                    </div>
-                    <div class="col">
-                        <a class="btn btn-outline-info" href="https://app.appliku.com/" target="_blank">Sitemap</a>
-                    </div>
-                </div>
+                <p class="centertext">Web Pandas is a website designed by Timothy Malahy. The site is entirely open sourced and accessible at 
+                    <a href="https://github.com/TimothyMalahy/webpandas2">github.</a>
+                    The intent is to teach people about pandas, a popular data analytics python backed by the Python programming language. The website is written using the Django Web Framework written in Python as well as Javascript, HTML, and CSS.
+                </p>
             </div>
         </div>
     </div>

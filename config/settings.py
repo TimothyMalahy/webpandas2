@@ -50,6 +50,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'djangoql',
     'post_office',
+    'bootstrap_modal_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

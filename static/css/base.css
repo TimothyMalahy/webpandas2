@@ -4,7 +4,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+  margin-bottom: 1000px; /* Margin bottom by footer height */
+
 }
 
 .site-footer
