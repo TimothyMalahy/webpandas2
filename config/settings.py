@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+import mimetypes
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 root = environ.Path(__file__) - 2  # get root of the project
@@ -10,6 +11,9 @@ environ.Env.read_env(os.path.join(root, '.env'))
 SITE_ROOT = root()
 DEBUG = env.bool('DEBUG', default=False)
 ADMIN_URL = env.str('DJANGO_ADMIN_URL', default='admin')
+
+
+mimetypes.add_type("text/css", ".css", True)
 
 # TEMPLATE_DEBUG = DEBUG
 
