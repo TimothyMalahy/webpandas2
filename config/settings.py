@@ -25,6 +25,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['webpandas.org'])
     ADMIN_URL = env.str('DJANGO_ADMIN_URL')
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
