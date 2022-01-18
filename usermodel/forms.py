@@ -14,7 +14,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, Button, Submit, HTML, Field
 from django.core.exceptions import ValidationError
 import re
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, LoginForm, ResetPasswordKeyForm
 
 
 class SignupForm(forms.ModelForm):
@@ -53,4 +53,19 @@ class SignupForm(forms.ModelForm):
         if cd.get('password') != cd.get('passwordconf'):
             self.add_error('passwordconf', "passwords do not match!")
             return cd
-        
+
+class MyLoginForm(LoginForm):
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        # print(self.fields)
+        # self.fields['password'].label = 'Stay signed in'
+        # self.fields['remember'].initial = True
+        self.helper = FormHelper(self)
+        self.helper.layout = Layout(
+            # Row(
+            #     Column('remember'),
+            # ),
+            # Row(
+            #     Column('password'),
+            # ),
+        )

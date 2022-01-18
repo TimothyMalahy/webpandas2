@@ -69,11 +69,6 @@ def ViewDatas(request):
     }
     return render(request, 'core/viewdatas.html', context) 
 
-class signinmodal(TemplateView):
-    template_name = 'core/signin.html'
-    
-
-
 def Manipulate(request, id):
     '''
     This is the editing page

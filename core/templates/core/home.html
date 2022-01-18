@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load account %}
 {% block title %}
 <title>Web Pandas</title>
 {% endblock %}
@@ -24,27 +25,31 @@ p.centertext{
     margin-bottom: 2%;
 }
 
+.panda{
+    margin-left:3%;
+}
+
 </style>
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
             <div class="container">
-                <h1 class="mb-3">Webpandas</h1>
+                <h1 class="mb-3">Web Pandas<span class="iconify panda" data-icon="mdi:panda" style="color:black;" data-width="96", data-height="96"></span></h1>
                 <p class="font-size-lg text-muted mb-4">
-                    A way to perform and teach basic operations from the 
+                    A way to perform and teach basic operations from the
                     <u>
                         <a href='https://pandas.pydata.org/'>
                             pandas
                         </a>
-                    </u> 
+                    </u>
                     data analytics package.
                 </p>
                 <div class="row">
                     <div class="col d-flex">
-                        <a class="btn btn-success  flex-fill" href="https://app.appliku.com/" target="_blank">Login</a>
+                        {% comment %}<a class="btn btn-success  flex-fill" href="{% url 'usermodel:signin' %}">Login</a>{% endcomment %}
                     </div>
                     <div class="col d-flex">
-                        <a class="btn btn-success flex-fill" href="{% url 'usermodel:signup' %}" target="_blank">Sign Up</a>
+                        <a class="btn btn-success flex-fill" href="{% url 'usermodel:signup' %}">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -63,6 +68,8 @@ p.centertext{
     <form class="d-flex pt-4 mx-auto mx-lg-0" style="max-width: 460px;">
     </form>
 </div>
+<a href="{% url 'account_login' %}">Sign In</a> or <a href="{% url 'account_signup' %}">Sign up</a>
 
 {% endblock %}
+
 
