@@ -11,41 +11,13 @@ Sign Up
 {% endblock %}
 
 
+
 {% block content %}
-
-<style>
-
-    .containertop{
-        margin-top: 25px;
-    }
-    .spaciousbtn{
-        margin-top:25px;
-    }
-
-</style>
-
-{% if user.is_authenticated %}
-
-<div class='container containertop'>
-    <div class='pb-5 card'>
-        <div class="card-body">
-        <h5>Why would you signup, you're already signed in as <u>{{ user }}</u>.</h5>
-        <div class="col d-flex">
-            <a class="btn btn-danger flex-fill spaciousbtn" href="{% url 'admin:logout' %}">Click to Sign Out</a>
-        </div>
-    </div>
-</div>
-
-
-</div>
-{% else %}
-
 
 <div class='container'>
     <div class='pb-5'>
             {% crispy form %}
     </div>
 </div>
-{% endif %}
-{% endblock %}
 
+{% endblock %}
