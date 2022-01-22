@@ -193,7 +193,7 @@ else:
     if DEBUG:
         WHITENOISE_AUTOREFRESH = True
 
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='test@example.com')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='dev@webpandas.com')
 
 """
 Third Party Settings
@@ -266,6 +266,7 @@ if SOCIALACCOUNT_PROVIDERS_GOOGLE_CLIENT_ID:
     }
 
 
+
 # Crispy Forms Settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -280,11 +281,12 @@ POST_OFFICE = {
 }
 
 
-
 # AWS SES Settings
-AWS_SES_REGION_NAME = env('AWS_SES_REGION_NAME', default='us-east-1')
-AWS_SES_REGION_ENDPOINT = env('AWS_SES_REGION_ENDPOINT', default='email.us-east-1.amazonaws.com')
-AWS_SES_CONFIGURATION_SET = env('AWS_SES_CONFIGURATION_SET', default=None)
+AWS_SES_REGION_NAME = env.str('AWS_SES_REGION_NAME', default='us-east-1')
+AWS_SES_REGION_ENDPOINT = env.str('AWS_SES_REGION_ENDPOINT', default='email.us-east-1.amazonaws.com')
+AWS_SES_CONFIGURATION_SET = env.str('AWS_SES_CONFIGURATION_SET', default=None)
+# AWS_ACCESS_KEY_ID=env.str('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY=env.str('AWS_SECRET_ACCESS_KEY')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

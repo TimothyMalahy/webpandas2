@@ -69,3 +69,12 @@ class MyLoginForm(LoginForm):
             #     Column('password'),
             # ),
         )
+
+
+class MySignupForm(SignupForm):
+    def __init__(self, *args, **kwargs):
+        super(SignupForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.layout = Layout(
+            
+        )

@@ -7,5 +7,6 @@ app_name = "usermodel"
 
 urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
-    path('signin/', views.signin_view, name='signin')
+    path('signin/', views.signin_view, name='signin'),
+    path('signup2/', views.signup_view2, name='signup2')
 ]

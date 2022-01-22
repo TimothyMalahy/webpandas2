@@ -38,3 +38,10 @@ def signin_view(request):
         'form':MyLoginForm(),
     }
     return render(request, 'usermodel/signin.html', context)
+
+
+def signup_view2(request):
+    context = {
+        'form':MySignupForm(),
+    }
+    return render(request, 'usermodel/signup2.html', context)
